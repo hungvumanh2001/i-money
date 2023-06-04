@@ -19,7 +19,7 @@
         </div>
         <div class="row">
           <label class="flex flex-col" for="password">
-            <span class="font-semibold">Full Name</span>
+            <span class="font-semibold">Password</span>
             <input
               id="password"
               class="px-4 py-3 rounded-lg border border-gray-100 mt-1"

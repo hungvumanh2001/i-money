@@ -14,6 +14,7 @@
               class="px-4 py-3 rounded-lg border border-gray-100 mt-1"
               type="text"
               placeholder="iMoney..."
+              v-model="fullName"
             />
           </label>
         </div>
@@ -25,17 +26,19 @@
               class="px-4 py-3 rounded-lg border border-gray-100 mt-1"
               type="email"
               placeholder="example@gmail.com"
+              v-model="email"
             />
           </label>
         </div>
         <div class="row">
           <label class="flex flex-col" for="password">
-            <span class="font-semibold">Full Name</span>
+            <span class="font-semibold">Password</span>
             <input
               id="password"
               class="px-4 py-3 rounded-lg border border-gray-100 mt-1"
               type="password"
               placeholder="example"
+              v-model="password"
             />
           </label>
         </div>
@@ -65,10 +68,17 @@
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   setup() {
-    function onSubmit() {}
-    return { onSubmit };
+    const fullName = ref("");
+    const email = ref("");
+    const password = ref("");
+
+    function onSubmit() {
+      console.log(fullName, email, password);
+    }
+    return { fullName, email, password, onSubmit };
   },
 };
 </script>
