@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*":["./src/*"]
+    }
+  },
+  "exclude": ["note_modules","dist"]
+}
