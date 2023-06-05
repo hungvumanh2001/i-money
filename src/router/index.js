@@ -1,4 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { projectAuth } from "@/configs/firebase";
+
+// Auth Guards
+const requireAuth = (to, from, next) => {
+  const user = projectAuth.currentUser;
+  //nếu không lấy được user thì chuyển hướng về Login. Ngược lại cho chạy tiếp đến router xác định
+  if (!user) next({ name: "Login", params: {} });
+  else next();
+};
 
 const routes = [
   {
@@ -36,6 +45,7 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/profile.vue"),
+    beforeEnter: requireAuth,
   },
   {
     path: "/logout",
