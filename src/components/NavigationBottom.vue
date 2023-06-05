@@ -12,63 +12,47 @@
         </li>
       </ul>
     </div>
+    <div data-circle class="top-0 absolute left-1/2 -translate-x-1/2"></div>
+    <div
+      data-circle-inset
+      class="absolute flex items-center justify-center bg-primary text-white w-12 h-12 rounded-full cursor-pointer -top-6 left-1/2 -translate-x-1/2"
+      @click="goToRoute"
+    >
+      <i class="t2ico t2ico-plus"></i>
+    </div>
   </footer>
 </template>
 
 <style lang="css" scoped>
-footer#footer::before,
-footer#footer::after {
-  @apply absolute;
-
-  left: 50%;
-  transform: translateX(-50%);
-}
-footer#footer::before {
+footer#footer > div[data-circle] {
   @apply bg-dark-light;
 
-  content: "";
   width: 60px;
   height: 30px;
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
   top: 0;
 }
-footer#footer::after {
-  @apply -top-6 flex items-center justify-center text-white;
-  @apply w-12 h-12 bg-primary rounded-full cursor-pointer;
-
-  content: "\e921";
-  font-family: "t2ico";
+footer#footer ul li:nth-child(2) {
+  margin-right: 10%;
+}
+footer#footer ul li:nth-child(3) {
+  margin-left: 10%;
 }
 </style>
 
 <script>
 import { reactive } from "vue";
+import { NAV_BOTTOM_ITEMS } from "@/constants/index";
+import { useRouter } from "vue-router";
 export default {
   setup() {
-    const navItems = reactive([
-      {
-        icon: "t2ico-category",
-        text: "Home",
-        name: "Home",
-      },
-      {
-        icon: "t2ico-chart",
-        text: "Report",
-        name: "Home",
-      },
-      {
-        icon: "t2ico-presentation",
-        text: "Budget",
-        name: "Home",
-      },
-      {
-        icon: "t2ico-profile",
-        text: "Profile",
-        name: "Profile",
-      },
-    ]);
-    return { navItems };
+    const router = useRouter();
+    const navItems = reactive(NAV_BOTTOM_ITEMS);
+    function goToRoute() {
+      router.push({ name: "NewTransaction", params: {} });
+    }
+    return { navItems, goToRoute };
   },
 };
 </script>
