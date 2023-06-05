@@ -88,7 +88,6 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import { useSignUp } from "@/composables/useSignUp";
-import router from "@/router";
 export default {
   setup() {
     const { error, isPending, signUp } = useSignUp();

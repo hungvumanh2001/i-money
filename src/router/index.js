@@ -28,6 +28,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/login.vue"),
   },
+  {
+    path: "/profile",
+    name: "Profile",
+    meta: {
+      layout: "default",
+    },
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/profile.vue"),
+  },
 ];
 
 const router = createRouter({
