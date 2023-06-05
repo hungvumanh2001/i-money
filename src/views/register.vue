@@ -100,7 +100,7 @@ export default {
     async function onSubmit() {
       // console.log(email.value, password.value, fullName.value);
       await signUp(email.value, password.value, fullName.value);
-      if (!error.value) router.push({ name: "Login", params: {} });
+      if (!error.value) router.push({ name: "Profile", params: {} });
     }
     return { fullName, email, password, error, isPending, onSubmit };
   },
