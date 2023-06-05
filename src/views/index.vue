@@ -1,6 +1,16 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <div class="home"></div>
+  <div class="mt-6" v-if="user">{{ user.displayName }}</div>
 </template>
+
+<script>
+import { useUser } from "@/composables/useUser";
+export default {
+  setup() {
+    const { getUser } = useUser();
+    const { user } = getUser();
+
+    return { user };
+  },
+};
+</script>
